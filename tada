@@ -1,0 +1,20 @@
+#!/bin/zsh
+LOGS_DIR=~/code/tada/logs
+TODAY=$(date "+%Y-%m-%d")
+LOGS_FILE=$LOGS_DIR/$TODAY.csv
+
+# No arguments provided, exit.
+if [ $# -eq 0 ]; then
+  echo "missing arguments; exiting..."
+  exit 0
+fi
+
+# Logs directory is missing, create it.
+if [ ! -d $LOGS_DIR ]; then
+  mkdir -p $LOGS_DIR
+fi
+ 
+
+NOW=$(date "+%Y-%m-%d %H:%M")
+DATA="$NOW,\"$@\""
+echo $DATA >> $LOGS_FILE
