@@ -1,0 +1,8 @@
+#!/bin/zsh
+# Variables
+LOGS_DIR=~/code/tada/logs
+TODAY=$(date "+%Y-%m-%d")
+LOGS_FILE=$LOGS_DIR/$TODAY.csv
+
+# Open today's file in the editor.
+$EDITOR $LOGS_FILE
